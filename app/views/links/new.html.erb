@@ -1,0 +1,25 @@
+<h2>Create a Link</h2>
+
+<form action="<%= links_url %>" method="POST">
+  <input type="hidden" name="link[user_id]" value="<%= current_user.id %>">
+  <label for="title">Title</label>
+  <input type="text" id="title" name="link[title]">
+  <br>
+  <label for="url">Url</label>
+  <input type="text" id="url" name="link[url]">
+  <br>
+  <label for="body">Body</label>
+  <input type="text" id="body" name="link[body]">
+  <br>
+
+  <% @subs.each do |sub| %>
+    <input type="checkbox"
+      id="<%= sub.name %>"
+      name="link[sub_ids][]"
+      value="<%= sub.id %>">
+    <label for="<%= sub.name %>"><%= sub.name %></label>
+    <br>
+  <% end %>
+
+  <input type="submit" value="Submit Link">
+</form>

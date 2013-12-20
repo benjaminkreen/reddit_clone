@@ -1,0 +1,22 @@
+<form action="<%= subs_url %>" method="POST">
+  <input type="hidden" name="sub[user_id]" value="<%= current_user.id %>">
+  <label for="sub_name">Create a Sub</label>
+  <input type="text" name="sub[name]" id="sub_name" value="<%# @sub.name if @sub.name %>">
+
+  <% 5.times do %>
+  <input type="hidden" name="link[][user_id]" value="<%= current_user.id %>">
+    <br>
+    <br>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="link[][title]">
+    <br>
+    <label for="url">Url</label>
+    <input type="text" id="url" name="link[][url]">
+    <br>
+    <label for="body">Body</label>
+    <input type="text" id="body" name="link[][body]">
+    <br>
+    <br>
+  <% end %>
+  <input type="submit" value="Create Sub">
+</form>

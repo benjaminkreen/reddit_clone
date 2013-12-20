@@ -1,0 +1,11 @@
+<h1><%= @sub.name %></h1>
+<br>
+Moderated by <%= @sub.moderator.email %>
+<br>
+Links in this sub:
+<br>
+<ul>
+  <% @sub.links.each do |link|  %>
+    <li><%= link_to("#{link.title}", link_url(link)) %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,12 @@
+<h1><%= @link.title %></h1>
+<br>
+<%= link_to(@link.url, @link.url) %>
+<br>
+posted by <%= @link.submitter.email %>
+<br>
+THis link has been posted to:
+<ul>
+  <% @link.subs.each do |sub|  %>
+    <li><%= link_to("#{sub.name}", sub_url(sub)) %></li>
+  <% end %>
+</ul>
